@@ -1,7 +1,7 @@
 # ExportServer
 
 This is an almost verbatem port of Garrett Smith's
-(port_server)[https://github.com/gar1t/port_server] example for how to use
+[port_server](https://github.com/gar1t/port_server) example for how to use
 Erlang (or in this case Elixir) to extend Erlang supervision to external apps.
 
 Here's Garrett's description:
