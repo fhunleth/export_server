@@ -7,7 +7,11 @@ defmodule ExportServer.Worker do
 
   # GenServer implementation
   def init(command) do
+    # If the service exits, have Elixir send a :EXIT message
+    # to us.
     Process.flag(:trap_exit, true)
+
+    # Spawn the service
     port = Port.open({:spawn, command}, [:stream, {:line, 79}])
     {:ok, [port]}
   end
@@ -20,9 +24,12 @@ defmodule ExportServer.Worker do
   end
 
   def terminate({:port_terminated, _reason}, _state) do
-   :ok
+    :ok
   end
   def terminate(_reason, [port]) do
+    # If the Worker process terminates for any reason other than
+    # :port_terminated (see above), close the port and hence kill
+    # the service.
     Port.close(port)
   end
 
