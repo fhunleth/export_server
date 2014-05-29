@@ -30,7 +30,7 @@ Here's Garrett's description:
 
 Install Erlang and Elixir on your system and run:
 
-   $ iex compile
+    $ iex compile
 
 # Running
 
@@ -41,22 +41,22 @@ version of Python. The scripts are in the `priv` directory.
 
 To start Elixir and run the two services, run:
 
-   $ iex -S mix
+    $ iex -S mix
 
 Now if you run `pgrep`, you should see the services running. For example,
 
-   $ pgrep service_a
-   9391
-   $ pgrep service_b
-   9392
+    $ pgrep service_a
+    9391
+    $ pgrep service_b
+    9392
 
 If you kill a service (e.g., to simulate a crash), it will be restarted:
 
-   $ pgrep service_a
-   9391
-   $ pkill service_a
-   $ pgrep service_a
-   9469
+    $ pgrep service_a
+    9391
+    $ pkill service_a
+    $ pgrep service_a
+    9469
 
 The supervisor is setup to allow for a maximum of 2 restarts in 5 seconds, so
 if you kill a service too many times, too quickly, the application will fail and
